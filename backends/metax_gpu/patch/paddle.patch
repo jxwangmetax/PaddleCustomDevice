@@ -470,6 +470,24 @@ index 88663ec880..98b93072a3 100644
  #include "paddle/phi/kernels/funcs/detail/gru_gpu_kernel.h"
  #include "paddle/phi/kernels/funcs/detail/gru_kernel.h"
  
+diff --git a/paddle/phi/kernels/funcs/layer_norm_impl.cu.h b/paddle/phi/kernels/funcs/layer_norm_impl.cu.h
+index 4eae698648..5c047723ea 100644
+--- a/paddle/phi/kernels/funcs/layer_norm_impl.cu.h
++++ b/paddle/phi/kernels/funcs/layer_norm_impl.cu.h
+@@ -43,11 +43,11 @@ template <typename T>
+ using LayerNormParamType = typename CudnnDataType<T>::BatchNormParamType;
+ 
+ inline static int GetDesiredBlockDim(int64_t block_dim) {
+-  const int kMaxBlockDim = 512;
++  const int kMaxBlockDim = 256;
+ #ifdef __HIPCC__
+   const int lwarpSize = 64;
+ #else
+-  const int lwarpSize = 32;
++  const int lwarpSize = 64;
+ #endif
+   return block_dim >= kMaxBlockDim ? kMaxBlockDim : lwarpSize;
+ }
 diff --git a/paddle/phi/kernels/funcs/math/context_project.h b/paddle/phi/kernels/funcs/math/context_project.h
 index 15e1a4a3c3..e4780538d7 100644
 --- a/paddle/phi/kernels/funcs/math/context_project.h

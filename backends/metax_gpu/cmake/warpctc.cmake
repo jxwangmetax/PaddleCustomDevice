@@ -108,6 +108,10 @@ else()
   set(WARPCTC_CXX_FLAGS_DEBUG ${CMAKE_CXX_FLAGS_DEBUG})
 endif()
 
+set(COPY_COMMAND
+    ${CMAKE_COMMAND} -E copy "${CMAKE_SOURCE_DIR}/patch/intrinsics.cuh"
+    "${SOURCE_DIR}/include/contrib/moderngpu/include/device/")
+
 ExternalProject_Add(
   extern_warpctc
   ${EXTERNAL_PROJECT_LOG_ARGS}
@@ -117,6 +121,7 @@ ExternalProject_Add(
   PATCH_COMMAND
   COMMAND ${WARPCTC_PATCH_COMMAND}
   COMMAND ${WARPCTC_PATCH_CUDA_COMMAND}
+  COMMAND ${COPY_COMMAND}
   COMMAND ${WARPCTC_PATHCH_ROCM_COMMAND}
   # BUILD_ALWAYS    1
   CMAKE_ARGS -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}

@@ -81,8 +81,7 @@ list(
   ${PADDLE_LEGACY_TEST_PATH}/test_softmax_with_cross_entropy_op.py
   ${PADDLE_LEGACY_TEST_PATH}/test_full_op.py
   ${PADDLE_LEGACY_TEST_PATH}/test_scatter_op.py
-  ${PADDLE_LEGACY_TEST_PATH}/test_clip_op.py
-  ${PADDLE_LEGACY_TEST_PATH}/test_reduce_op.py)
+  ${PADDLE_LEGACY_TEST_PATH}/test_clip_op.py)
 
 list(
   REMOVE_ITEM

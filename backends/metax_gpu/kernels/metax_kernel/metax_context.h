@@ -30,6 +30,8 @@
 cublasLtHandle_t GetBlasLtHandle();
 
 namespace phi {
+bool AllowTF32Cublas();
+bool AllowTF32Cudnn();
 class DnnWorkspaceHandle {
  public:
   inline DnnWorkspaceHandle(Allocator* allocator, gpuStream_t stream)

@@ -27,6 +27,8 @@
 #include "paddle/phi/core/attribute.h"
 #include "paddle/phi/core/device_context.h"
 
+cublasLtHandle_t GetBlasLtHandle();
+
 namespace phi {
 class DnnWorkspaceHandle {
  public:

@@ -48,7 +48,7 @@ if(NOT TEST_LIST_FILE)
     REMOVE_ITEM
     PYTHON_TEST_SCRIPTS
     # Metax unit test
-    ${METAX_UNIT_TEST_PATH}/test_matmul_op__metax.py
+    ${METAX_UNIT_TEST_PATH}/test_matmul_op_metax.py
     # 精度问题
     ${PADDLE_LEGACY_TEST_PATH}/test_sum_op.py
     ${PADDLE_LEGACY_TEST_PATH}/test_max_op.py
